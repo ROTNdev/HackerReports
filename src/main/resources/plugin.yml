@@ -1,0 +1,20 @@
+name: ${project.artifactId}
+version: ${project.version}
+author: ROTN
+main: com.rotn.hackerreports.HR
+
+commands:
+  report:
+    description: Report a player for hacking, abusing, or generally breaking rules.
+  reports:
+    description: Base admin command for reports.
+
+permissions:
+  hackerreports.admin:
+    default: op
+  hackerreports.see:
+    default: op
+  hackerreports.delete:
+    default: op
+  hackerreports.report:
+    default: true
