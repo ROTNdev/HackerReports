@@ -41,16 +41,20 @@ public class CommandReports implements CommandExecutor{
                         }
                     } else if(args[0].equalsIgnoreCase("list")){
 						player.sendMessage(plugin.prefix + ChatColor.DARK_AQUA + "Listing reported players...");
+                        Integer count = 0;
 						StringBuilder reports = new StringBuilder();
 						Collection<Report> reportCollection = plugin.rh.getReports();
                         if(reportCollection.size() != 0) {
                             for(Report report : reportCollection){
+                                count++;
                                 if(reports.length() > 0)reports.append(", ");
                                 reports.append(ChatColor.GOLD + report.getName() + ChatColor.GRAY);
                             }
                         } else {
                             reports.append(ChatColor.RED + "No reports have been found.");
+                            count = 0;
                         }
+                        player.sendMessage(plugin.prefix + ChatColor.AQUA + "Found " + String.valueOf(count) + " reports.");
 						player.sendMessage(plugin.prefix + reports.toString());
 					}else if(args[0].equalsIgnoreCase("get")){
 						player.sendMessage(plugin.prefix + ChatColor.RED + "Usage: /reports get <player>");
