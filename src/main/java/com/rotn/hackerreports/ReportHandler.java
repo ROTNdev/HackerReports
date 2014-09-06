@@ -4,10 +4,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ReportHandler {
 
@@ -27,7 +24,7 @@ public class ReportHandler {
                     YamlConfiguration report = YamlConfiguration.loadConfiguration(file);
                     String name = report.getString("Name");
                     List<String> reports = report.getStringList("Reports");
-                    this.reports.put(name, new Report(name, reports));
+                    this.reports.put(name, new Report(name, UUID.fromString(report.getString("UUID")), reports));
                     count++;
                 }
             }
