@@ -69,7 +69,8 @@ public class CommandReport implements CommandExecutor {
                             List<String> reportCollection = new ArrayList<String>();
                             reportCollection.add(this.getTime() + player.getName() + " reported player for: " + message);
                             Report report = new Report(
-                                    player, reportCollection);
+                                    args[0],
+                                    reportCollection);
                             try {
                                 report.save();
                             } catch (IOException e) {
@@ -98,7 +99,7 @@ public class CommandReport implements CommandExecutor {
                                 } else {
                                     List<String> reportCollection = new ArrayList<String>();
                                     reportCollection.add(this.getTime() + player.getName() + " reported player for: " + message);
-                                    Report report = new Report(target, reportCollection);
+                                    Report report = new Report(args[0], reportCollection);
                                     try {
                                         report.save();
                                     } catch (IOException e) {
